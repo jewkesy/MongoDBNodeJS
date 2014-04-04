@@ -29,7 +29,31 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        callback(Error("addUser Not Yet Implemented!"), null);
+
+        var query = [];
+        query['_id'] =  username;
+
+        db.collection('users').findOne(query, function(err, doc) {
+            if (err) throw err;
+            if (!doc) {
+
+                db.collection('users').insert(user, function(err, inserted) {
+                    if(err) throw err;
+
+                    console.dir("Successfully inserted: " + JSON.stringify(inserted));
+                    console.log(user)
+                    callback(null, user)
+                    //return db.close();
+                });
+            }
+            else {
+                var ret = {'code': 110000};
+                callback(ret, null)
+                
+            }
+        });
+
+        //callback(Error("addUser Not Yet Implemented!"), null);
     }
 
     this.validateLogin = function(username, password, callback) {
@@ -61,7 +85,24 @@ function UsersDAO(db) {
         }
 
         // TODO: hw2.3
-        callback(Error("validateLogin Not Yet Implemented!"), null);
+var query = [];
+        query['_id'] =  username;
+
+        db.collection('users').findOne(query, function(err, doc) {
+            if (err) throw err;
+            if (doc) {
+                console.log('found user...');
+                console.dir(doc)
+                callback(null, doc);
+
+            }
+            else {
+                var ret = {'code': 110000};
+                callback(ret, null)
+            }
+        });
+
+        //callback(Error("validateLogin Not Yet Implemented!"), null);
     }
 }
 
