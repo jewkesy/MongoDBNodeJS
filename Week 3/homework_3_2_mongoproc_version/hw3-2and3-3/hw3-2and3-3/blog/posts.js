@@ -30,7 +30,21 @@ function PostsDAO(db) {
 
         // now insert the post
         // hw3.2 TODO
-        callback(Error("insertEntry NYI"), null);
+        //callback(Error("insertEntry NYI"), null);
+
+        posts.insert(post, function (err, result) {
+            "use strict";
+
+            if (!err) {
+                console.log("Inserted new post");
+                console.log(result[0])
+                return callback(null, result[0].title);
+            }
+
+            return callback(err, null);
+        });
+
+
     }
 
     this.getPosts = function(num, callback) {
@@ -81,8 +95,22 @@ function PostsDAO(db) {
             comment['email'] = email
         }
 
+        var updateStuff = { comments: comment}
+
         // hw3.3 TODO
-        callback(Error("addComment NYI"), null);
+        //callback(Error("addComment NYI"), null);
+
+        posts.update({'title': permalink}, { $push: updateStuff }, {safe:true, multi:false}, function(err, result) {
+           "use strict";
+
+            if (!err) {
+                console.log("Inserted new comment");
+                console.log(result)
+                return callback(null, permalink);
+            }
+
+            return callback(err, null);
+        });
     }
 }
 
