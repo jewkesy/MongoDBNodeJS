@@ -3,8 +3,8 @@ use week5
 db.smallzips.aggregate([
 	{
 		"$match": {
-			"state" : { $in: ["NY", "CA"] }
-			//"state" : { $in: ["CT", "NJ"] }
+			"state" : { $in: ["NY", "CA"] }     // answer 44804.78260
+			//"state" : { $in: ["CT", "NJ"] }   // answer 38176.6363636363
 		}
 	},
 	{
@@ -25,28 +25,3 @@ db.smallzips.aggregate([
 	 	}
 	}
 ])
-
-
-// db.zips.aggregate([
-//     {$match:
-//      {
-// 	 state:"NY"
-//      }
-//     },
-//     {$group:
-//      {
-// 	 _id: "$city",
-// 	 population: {$sum:"$pop"},
-// 	 zip_codes: {$addToSet: "$_id"}
-//      }
-//     },
-//     {$project:
-//      {
-// 	 _id: 0,
-// 	 city: "$_id",
-// 	 population: 1,
-// 	 zip_codes:1
-//      }
-//     }
-     
-// ])
