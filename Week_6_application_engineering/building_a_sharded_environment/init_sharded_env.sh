@@ -7,7 +7,7 @@
 # clean everything up
 echo "killing mongod and mongos"
 killall mongod
-killall monogs
+killall mongos
 echo "removing data files"
 rm -rf /data/config
 rm -rf /data/shard*
