@@ -1,0 +1,6 @@
+Welcome to the HW 6.5 Checker. My job is to verify that you have a three node replica set properly set up.
+Checking rs.status() output....
+Checking contents of local.system.replset collection....
+Looks good. Replica set with three nodes running
+hw6-5 Validated successfully!
+Your validation code is: XdYfY6aqjqS3ik35qS6v
