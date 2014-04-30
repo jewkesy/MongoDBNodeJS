@@ -13,7 +13,7 @@ rm -rf /data/config
 rm -rf /data/shard*
 
 
-# start a replica set and tell it that it will be a shord0
+# start a replica set and tell it that it will be a shard0
 mkdir -p /data/shard0/rs0 /data/shard0/rs1 /data/shard0/rs2
 mongod --replSet s0 --logpath "s0-r0.log" --dbpath /data/shard0/rs0 --port 37017 --fork --shardsvr --smallfiles
 mongod --replSet s0 --logpath "s0-r1.log" --dbpath /data/shard0/rs1 --port 37018 --fork --shardsvr --smallfiles
