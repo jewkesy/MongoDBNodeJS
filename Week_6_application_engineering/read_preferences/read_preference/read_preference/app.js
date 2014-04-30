@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
     ReadPreference = require('mongodb').ReadPreference;
 
-MongoClient.connect("mongodb://localhost:30001,localhost:30002,localhost:30003/course?readPreference=secondary", function(err, db) {
+MongoClient.connect("mongodb://localhost:27017,localhost:27018,localhost:27019/course?readPreference=secondary", function(err, db) {
     if (err) throw err;
 
     db.collection("repl").insert({ 'x' : 1 }, function(err, doc) {
