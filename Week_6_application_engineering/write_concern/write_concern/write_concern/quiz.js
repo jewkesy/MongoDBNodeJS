@@ -1,6 +1,6 @@
 var MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect("mongodb://localhost:27017,localhost:27018,localhost:27019/course?w=1", function(err, db) {
+MongoClient.connect("mongodb://localhost:27017,localhost:27018,localhost:27019/course?w=10", function(err, db) {
     if (err) throw err;
 
     // Write concern of one
@@ -9,7 +9,7 @@ MongoClient.connect("mongodb://localhost:27017,localhost:27018,localhost:27019/c
         console.log(doc);
 
         // Write concern of two
-        db.collection("repl").insert({ 'x' : 2 }, { 'w' : 2 }, function(err, doc) {
+        db.collection("repl").insert({ 'x' : 2 }, { 'w' : 21 }, function(err, doc) {
             if (err) throw err;
             console.log(doc);
             db.close();
