@@ -1,0 +1,13 @@
+{
+  "name": "M101JS_Final_Exam_Question_7",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "mongodb": "*",
+    "mongoskin": "*",
+    "underscore": "*"
+  }
+}
