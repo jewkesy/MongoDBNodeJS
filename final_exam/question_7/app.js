@@ -22,8 +22,11 @@ function cleanseImages() {
 				if (err) throw err
 				if(item.length == 0) {
 					console.log('not found ' + imgId)
+					db.collection('images').remove( { '_id' : imgId }, function (err, numberRemoved) {
+						if (err) throw err
+						console.log('removed ' + numberRemoved);
+					}); 
 				}
-
 			});
 		});
 	});
