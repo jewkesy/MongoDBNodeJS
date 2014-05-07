@@ -1,0 +1,16 @@
+// TODO: Final exam question - Increment the number of likes
+var selector = {};
+
+selector['comments.' + comment_ordinal + '.num_likes'] = 1;
+
+posts.update({'permalink': permalink}, {'$inc': selector}, function(err, postLiked) {
+    "use strict";
+
+    if (err) return callback(err, null);
+    callback(err, postLiked);
+});
+
+
+
+
+VQ3jedFjG5VmElLTYKqS
